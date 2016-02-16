@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ab7ddcb466f26a181f26e2a0bd44061f",
-    "content-hash": "83379fbb369b7107843603ad42cd710a",
+    "hash": "51433c0006ea030c18b41dbbae04c5c6",
+    "content-hash": "e4e309302f8efc461f3e9713c3e35675",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -108,6 +108,55 @@
                 "twig"
             ],
             "time": "2016-02-14 13:52:38"
+        },
+        {
+            "name": "bermanco/bac-timber-classes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bermanco/extended-timber-classes.git",
+                "reference": "d2b5a20bdf7c9213e34560ec0ecab655c0f46a52"
+            },
+            "require": {
+                "bermanco/posts-2-posts-adapter": "dev-master",
+                "jarednova/timber": "^0.22.5",
+                "webdevstudios/cmb2": "^2.1"
+            },
+            "type": "wordpress-plugin",
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Herbert",
+                    "email": "herbert@bermanco.com"
+                }
+            ],
+            "description": "Enhanced and expanded classes for use with Timber",
+            "time": "2016-02-16 02:15:32"
+        },
+        {
+            "name": "bermanco/posts-2-posts-adapter",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bermanco/posts-2-posts-adapter.git",
+                "reference": "736515c83b40bce05d0de1d76e5342b18bfd85b3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "bermanco\\Posts2PostsAdapter\\": "src/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Chris Herbert",
+                    "email": "herbert@bermanco.com"
+                }
+            ],
+            "description": "Class to make working with the WordPress Posts 2 Posts plugin a little easier.",
+            "time": "2016-01-12 16:53:11"
         },
         {
             "name": "composer/installers",
@@ -661,13 +710,35 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/easy-wp-smtp/"
+        },
+        {
+            "name": "wpackagist-plugin/posts-to-posts",
+            "version": "1.6.5",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/posts-to-posts/",
+                "reference": "tags/1.6.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/posts-to-posts.1.6.5.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/posts-to-posts/"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "webdevstudios/cpt-core": 20
+        "webdevstudios/cpt-core": 20,
+        "bermanco/posts-2-posts-adapter": 20,
+        "bermanco/bac-timber-classes": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

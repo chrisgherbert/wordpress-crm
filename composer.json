@@ -30,6 +30,14 @@
     {
       "type": "composer",
       "url": "http://wpackagist.org"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/bermanco/posts-2-posts-adapter.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/bermanco/extended-timber-classes.git"
     }
   ],
   "require": {
@@ -41,11 +49,14 @@
     "jarednova/timber": "^0.22.5",
     "webdevstudios/cpt-core": "dev-master",
     "webdevstudios/cmb2": "^2.1",
-    "wpackagist-plugin/easy-wp-smtp": "^1.2"
+    "wpackagist-plugin/easy-wp-smtp": "^1.2",
+    "bermanco/posts-2-posts-adapter": "dev-master",
+    "bermanco/bac-timber-classes": "dev-master",
+    "wpackagist-plugin/posts-to-posts": "^1.6"
   },
   "extra": {
     "installer-paths": {
-      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "jarednova/timber", "webdevstudios/cpt-core", "webdevstudios/cmb2"],
+      "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin", "jarednova/timber", "webdevstudios/cpt-core", "webdevstudios/cmb2", "wpackagist-plugin/posts-to-posts", "bermanco/bac-timber-classes"],
       "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
       "web/app/themes/{$name}/": ["type:wordpress-theme"]
     },
