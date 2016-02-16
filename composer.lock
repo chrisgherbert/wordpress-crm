@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "411fe67df855b637f4d2e117c705b050",
-    "content-hash": "8ef8cb877fa4537aad9df3a8866371bc",
+    "hash": "51433c0006ea030c18b41dbbae04c5c6",
+    "content-hash": "e4e309302f8efc461f3e9713c3e35675",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -108,30 +108,6 @@
                 "twig"
             ],
             "time": "2016-02-14 13:52:38"
-        },
-        {
-            "name": "bermanco/bac-cpt",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bermanco/bac-cpt.git",
-                "reference": "7f678c50dc83e61cfdf568ded6d3de2ec728af26"
-            },
-            "require": {
-                "webdevstudios/cmb2": "^2.1"
-            },
-            "type": "wordpress-plugin",
-            "license": [
-                "GPLv2"
-            ],
-            "authors": [
-                {
-                    "name": "Joey Nichols",
-                    "email": "nichols@bermanco.com"
-                }
-            ],
-            "description": "Defines custom post types, taxonomies, etc.",
-            "time": "2016-02-16 22:20:14"
         },
         {
             "name": "bermanco/bac-timber-classes",
@@ -762,8 +738,7 @@
     "stability-flags": {
         "webdevstudios/cpt-core": 20,
         "bermanco/posts-2-posts-adapter": 20,
-        "bermanco/bac-timber-classes": 20,
-        "bermanco/bac-cpt": 20
+        "bermanco/bac-timber-classes": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
