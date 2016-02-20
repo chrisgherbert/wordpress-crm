@@ -1,0 +1,23 @@
+/**
+ * Remove the unit of a length
+ * @param {Number} $number - Number to remove unit from
+ * @return {Number} - Unitless number
+ */
+ @function strip-unit($number) {
+   @if type-of($number) == 'number' and not unitless($number) {
+     @return $number / ($number * 0 + 1);
+   }
+
+   @return $number;
+ }
+
+ /**
+  * Pixel to em conversion
+  * @param {Number} $pixels - Pixel number you want converted
+  * @param {Number} $context - The context to base the ratio on (default: base font size)
+  */
+ $browser-context: strip-unit($font-size-base);
+
+ @function em($pixels, $context: $browser-context) {
+ 	@return #{strip-unit($pixels/$context)}em;
+ }

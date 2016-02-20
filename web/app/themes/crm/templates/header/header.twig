@@ -1,0 +1,39 @@
+<header class="main-header" id="main-header">
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-3">
+
+				<a href="{{ site.url }}" rel="home">
+					<h1 class="main-header__logo" role="banner">
+						{{ site.name }}
+					</h1><!-- /.main-header__logo -->
+				</a>
+
+			</div><!-- /.col-md-3 -->
+
+			<div class="col-md-9">
+
+				{% if main_menu %}
+					<nav class="main-header__nav" role="navigation">
+						<ul main-header__nav__list>
+							{% for item in main_menu.items %}
+								<li class="main-header__nav__item">
+									<a href="{{ item.url }}" class="{{ item.classes|join(' ') }} main-header__nav__link">
+										{{ item.title }}
+									</a>
+								</li>
+							{% endfor %}
+						</ul>
+					</nav><!-- /.main-header__nav -->
+				{% endif %}
+
+			</div><!-- /.col-md-9 -->
+
+		</div><!-- /.row -->
+
+	</div><!-- /.container -->
+
+</header><!-- /#main-header.main-header -->

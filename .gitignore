@@ -2,12 +2,14 @@
 web/app/plugins/*
 !web/app/plugins/.gitkeep
 web/app/mu-plugins/*/
+!web/app/mu-plugins/crm-setup
 web/app/upgrade
 web/app/uploads/*
 !web/app/uploads/.gitkeep
 
 # Theme
 .devvars
+web/app/themes/*/dist
 
 # WordPress
 web/wp
@@ -33,5 +35,7 @@ node_modules
 bower_components
 
 # Vagrant
-bin
 .vagrant
+
+# Etc
+.DS_Store

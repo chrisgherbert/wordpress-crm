@@ -1,0 +1,11 @@
+@mixin type-spaced-bold-sans {
+	letter-spacing: em(1);
+	font-weight: 700;
+	font-family: $font-family-sans-serif;
+}
+
+@mixin type-tiny-bold-sans {
+	font-size: $font-size-small;
+	font-weight: 700;
+	font-family: $font-family-sans-serif;
+}

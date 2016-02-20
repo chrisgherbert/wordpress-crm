@@ -1,0 +1,33 @@
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.hidden-xxs {
+  @include mq-tiny-max {
+    display: none !important;
+  }
+}
+
+.visible-xxs {
+  @include mq-xsmall-min {
+    display: block !important;
+  }
+}

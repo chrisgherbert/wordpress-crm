@@ -1,0 +1,50 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+ * Fix SVG's in IE
+ * https://gist.github.com/larrybotha/7881691
+ */
+.ie9 img[src*=".svg"] {
+  width: 100%;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  img[src*=".svg"] {
+    width: 100%;
+  }
+}
+
+p {
+	margin: 0 0 0.5em;
+}
+
+a {
+	transition: all 0.15s;
+}
+
+input, button, textarea {
+	&:focus {
+		outline: none;
+	}
+}
+
+/**
+ * The Content
+ */
+
+.the-content {
+	p,ul,ol {
+		margin-bottom: 1em;
+	}
+	ul,ol {
+		line-height: 2em;
+	}
+}

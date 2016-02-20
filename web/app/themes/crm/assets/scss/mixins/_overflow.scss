@@ -1,0 +1,14 @@
+// Prevents long text strings from breaking container
+@mixin word-wrap() {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-word;
+	hyphens: auto;
+}
+
+// Adds overflow ellipsis styling
+@mixin overflow-ellipsis() {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

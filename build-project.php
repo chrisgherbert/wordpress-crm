@@ -4,7 +4,7 @@
  * Project Build Script
  */
 
-$theme_directory = ''; // './web/app/themes/themedir/'
+$theme_directory = './web/app/themes/crm/'; // './web/app/themes/themedir/'
 $theme_directory_cd = "cd $theme_directory";
 
 if (!$theme_directory){

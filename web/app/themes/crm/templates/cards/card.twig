@@ -1,0 +1,56 @@
+{# sample options:
+	classes: card--article,
+	image: post.thumbnail.src(),
+	type: post.post_type.name,
+	type_color: post.post_type.color,
+	title: post.title,
+	url: post.link,
+	heading: 3,
+	subtitle: post.subtitle,
+	author: post.author.name,
+#}
+
+{# Defaults #}
+{% if heading is not defined %}
+	{% set heading = 3 %}
+{% endif %}
+
+{% if subtitle_heading is not defined %}
+	{% set subtitle_heading = 4 %}
+{% endif %}
+
+<article class="card {{ classes }}">
+
+	{% block card_interior %}
+
+	<a href="{{ url }}" class="card__interior card__link">
+
+		<div class="card__background">
+			<div class="card__background__holder" style="background-image: url({{ image }});"></div><!-- /.card__background__holder -->
+		</div>
+
+		<div class="card__top">
+			{% if type is not null %}
+				<span class="btn card__type" style="background-color: {{ type_color }}">{{ type }}</span>
+			{% endif %}
+		</div>
+
+		<div class="card__content">
+
+			<h{{ heading }} class="card__title">{{ title }}</h{{ heading }}>
+
+			{% if subtitle is not null %}
+				<h{{ subtitle_heading }} class="card__subtitle">{{ subtitle }}</h{{ subtitle_heading }}>
+			{% endif %}
+
+			{% if author is not null %}
+				<p class="card__author">by: <strong>{{ author }}</strong></p>
+			{% endif %}
+
+		</div><!-- /.card__content -->
+
+	</a>
+
+	{% endblock %}
+
+</article><!-- /.card -->

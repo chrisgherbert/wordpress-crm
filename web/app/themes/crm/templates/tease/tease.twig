@@ -1,0 +1,59 @@
+{# sample options:
+	classes: tease--article,
+	image: post.thumbnail.src(),
+	type: post.post_type.name,
+	type_color: post.post_type.color,
+	title: post.title,
+	url: post.link,
+	heading: 3,
+	content: post.content,
+	meta: [post.author.name, post.date|time_ago]
+#}
+
+{# Defaults #}
+{% if heading is not defined %}
+	{% set heading = 4 %}
+{% endif %}
+
+<article class="tease {{ classes }}">
+
+	{% block tease_interior %}
+
+			{% if image is not null and type is not null %}
+				<a href="{{ url }}">
+					<div class="tease__image" style="background-image: url({{ image }})">
+							<span class="tease__type" style="background-color: {{ type_color }}">{{ type }}</span>
+					</div>
+				</a>
+			{% elseif image is not null %}
+				<a href="{{ url }}">
+					<div class="tease__image" style="background-image: url({{ image }})"></div>
+				</a>
+			{% elseif type is not null %}
+				<div class="tease__top">
+					<span class="tease__type" style="background-color: {{ type_color }}">{{ type }}</span>
+				</div>
+			{% endif %}
+
+			<h{{ heading }} class="tease__title">
+				<a href="{{ url }}">
+					{{ title }}
+				</a>
+			</h{{ heading }}>
+
+			{% if content is not null %}
+				<p class="tease__content">{{ content }}</p>
+			{% endif %}
+
+			{% if meta %}
+				{%
+					include 'meta/post-meta.twig'
+					with {
+						items: meta
+					} only
+				%}
+			{% endif %}
+
+	{% endblock %}
+
+</article>

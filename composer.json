@@ -52,7 +52,8 @@
     "wpackagist-plugin/easy-wp-smtp": "^1.2",
     "bermanco/posts-2-posts-adapter": "dev-master",
     "bermanco/bac-timber-classes": "dev-master",
-    "wpackagist-plugin/posts-to-posts": "^1.6"
+    "wpackagist-plugin/posts-to-posts": "^1.6",
+    "wpackagist-plugin/wp-crm": "^1.0"
   },
   "extra": {
     "installer-paths": {

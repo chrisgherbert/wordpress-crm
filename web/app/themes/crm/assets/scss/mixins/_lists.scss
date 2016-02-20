@@ -1,0 +1,27 @@
+// Strips <ul> and <ol> formatting
+@mixin strip-ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+// Formats <ul> or <ol> into
+// a horizontal format
+@mixin horizontal-list {
+	@include strip-ul;
+	li {
+		display: inline-block;
+	}
+	a {
+		display: block;
+	}
+}
+
+// Adds CSS3 columns syntax
+@mixin css-columns($count: 3, $gap: 10px, $width: null) {
+	column-count: $count;
+	column-gap: $gap;
+	@if ($width) {
+		column-width: $width;
+	}
+}

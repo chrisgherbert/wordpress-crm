@@ -1,0 +1,59 @@
+/**
+ * Media Queries
+ */
+
+/* 1200px and up */
+@mixin mq-large-min {
+	@media (min-width: #{$screen-lg-min}) {
+		@content;
+	}
+}
+
+/* Up to 1199px */
+@mixin mq-medium-max {
+	@media(max-width: #{$screen-md-max}) {
+		@content;
+	}
+}
+
+/* 992 and up */
+@mixin mq-medium-min {
+	@media(min-width: #{$screen-md-min}) {
+		@content;
+	}
+}
+
+/* Up to 991 */
+@mixin mq-small-max {
+	@media(max-width: #{$screen-sm-max}) {
+		@content;
+	}
+}
+
+/* 768 and up */
+@mixin mq-small-min {
+	@media(min-width: #{$screen-sm-min}) {
+		@content;
+	}
+}
+
+/* Up to 767 */
+@mixin mq-xsmall-max {
+	@media(max-width: #{$screen-xs-max}) {
+		@content;
+	}
+}
+
+/* 480 and up */
+@mixin mq-xsmall-min {
+	@media(min-width: #{$screen-xs-min}) {
+		@content;
+	}
+}
+
+/* Up to 479 */
+@mixin mq-tiny-max {
+	@media(max-width: ($screen-xs-min - 1)) {
+		@content;
+	}
+}

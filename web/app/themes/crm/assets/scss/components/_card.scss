@@ -1,0 +1,113 @@
+/**
+ * Container
+ */
+
+.cards {
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0px (em($grid-gutter-width/-2))
+}
+
+/**
+ * Single Cards
+ */
+
+.card {
+	flex-grow: 1;
+	flex-shrink: 1;
+	display: flex;
+	flex-direction: column;
+	min-width: 200px;
+	min-height: 200px;
+	padding: 0 em($grid-gutter-width/2) em($grid-gutter-width);
+}
+
+// Nested cards, used as card holders
+.card > .card {
+	padding-left: 0;
+	padding-right: 0;
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
+
+/**
+ * Card Types
+ */
+
+.card-tall {
+	@include mq-small-min {
+		min-height: 400px;
+	}
+}
+
+/**
+ * Card Components
+ */
+
+.card__link {
+	display: block;
+	width: 100%;
+}
+
+.card__interior {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: $spacing/3;
+	position: relative;
+}
+
+.card__content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	margin-top: auto;
+	position: relative;
+	padding-top: $spacing/2;
+	>:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.card__title {
+	color: white;
+}
+
+.card__top {
+	position: relative;
+}
+
+.card__background {
+	@include absolute-cover;
+	overflow: hidden;
+}
+
+.card__background::after {
+	@include absolute-cover;
+	content: "";
+	background: rgba(black, .3);
+}
+
+.card__background__holder {
+	@include absolute-cover;
+	@include bg-cover;
+	background-color: #ccc; /* fallback for no background images */
+	transition: transform 0.4s ease 0s;
+	transform: scale(1);
+}
+
+.card__link:hover .card__background__holder {
+	transition-delay: 0.2s;
+	transform: scale(1.05);
+}
+
+.card__author {
+	color: white;
+	font-size: $font-size-large;
+	font-style: italic;
+}
+
+.card__subtitle {
+	color: white;
+}

@@ -1,0 +1,40 @@
+/**
+ * Container
+ */
+
+.teases {
+ 	display: flex;
+ 	flex-flow: row wrap;
+ 	margin: 0px (em($grid-gutter-width/-2))
+}
+
+/**
+ * Single Tease
+ */
+
+.tease__image {
+	@include bg-cover;
+	padding: $spacing/3;
+	min-height: 200px;
+	margin-bottom: 1em;
+}
+
+.tease__link {
+	color: $text-color;
+}
+
+.tease__author {
+	font-style: italic;
+}
+
+.tease__title {
+	a { @include reverse-links; }
+}
+
+.tease__content {
+	margin-bottom: 1em;
+}
+
+.tease__top {
+	margin-bottom: 1em;
+}

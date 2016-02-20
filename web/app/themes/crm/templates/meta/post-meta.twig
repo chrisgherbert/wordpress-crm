@@ -1,0 +1,7 @@
+<div class="post-meta {{ classes }}">
+
+	{% if items %}
+		{{ items|join_not_empty('<span class="post-meta__separator">|</span>') }}
+	{% endif %}
+
+</div><!-- /.post-meta -->

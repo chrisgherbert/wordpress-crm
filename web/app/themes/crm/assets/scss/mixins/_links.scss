@@ -1,0 +1,23 @@
+// Creates white links that fade in opacity when hovered
+@mixin white-links {
+	color: rgba(white, 1);
+	&:hover, &:focus {
+		color: rgba(white, .6);
+	}
+}
+
+// Creates faded white links that turn fully opaque on hover
+@mixin white-links-reverse {
+	color: rgba(white, .6);
+	&:hover, &:focus {
+		color: rgba(white, 1);
+	}
+}
+
+// Creates links that are regular text color and turn link color on hover
+@mixin reverse-links {
+	color: $text-color;
+	&:hover, &:focus {
+		color: $link-color;
+	}
+}
