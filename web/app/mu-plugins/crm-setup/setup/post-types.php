@@ -5,9 +5,9 @@
  */
 define( 'CPT_PREFIX', 'crm_' );
 
-////////////
-// People //
-////////////
+//////////////
+// Contacts //
+//////////////
 
 class Person_CPT extends CPT_Core {
 
@@ -71,7 +71,7 @@ add_action('save_post', 'set_person_title_to_name', 10, 3);
 
 function set_person_title_to_name($post_id, $post, $update){
 
-	if (!$post->post_type == 'person'){
+	if ($post->post_type != 'person'){
 		return;
 	}
 
@@ -110,6 +110,38 @@ register_via_cpt_core(
 	),
 	array(
 		'supports' => array('title', 'thumbnail')
+	)
+);
+
+/////////////////////
+// Security Groups //
+/////////////////////
+
+register_via_cpt_core(
+	array(
+		'Security Group',
+		'Security Groups',
+		'security-group'
+	),
+	array(
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-lock'
+	)
+);
+
+///////////////////
+// Mailing Lists //
+///////////////////
+
+register_via_cpt_core(
+	array(
+		'Mailing List',
+		'Mailing Lists',
+		'mailing-list'
+	),
+	array(
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-email'
 	)
 );
 

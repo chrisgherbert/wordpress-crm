@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0839043c94ef7b3d202c973e5bea1202",
-    "content-hash": "bd4abf17b3a442e9b1af63b550a91505",
+    "hash": "51433c0006ea030c18b41dbbae04c5c6",
+    "content-hash": "e4e309302f8efc461f3e9713c3e35675",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -657,7 +657,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/766e860f80335a56d4d1bed51e4662c3851077d4",
+                "url": "https://api.github.com/repos/WebDevStudios/CPT_Core/zipball/3f73135702b4331194a8e43311e940663840ead2",
                 "reference": "766e860f80335a56d4d1bed51e4662c3851077d4",
                 "shasum": ""
             },
@@ -730,26 +730,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/posts-to-posts/"
-        },
-        {
-            "name": "wpackagist-plugin/wp-crm",
-            "version": "1.0.5",
-            "source": {
-                "type": "svn",
-                "url": "http://plugins.svn.wordpress.org/wp-crm/",
-                "reference": "tags/1.0.5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wp-crm.1.0.5.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/wp-crm/"
         }
     ],
     "packages-dev": [],

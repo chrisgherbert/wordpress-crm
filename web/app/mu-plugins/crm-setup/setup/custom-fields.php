@@ -1,14 +1,14 @@
 <?php
 
-////////////
-// People //
-////////////
+//////////////
+// Contacts //
+//////////////
 
-add_action('cmb2_admin_init', 'person_name_metabox');
+add_action('cmb2_admin_init', 'contact_name_metabox');
 
-function person_name_metabox(){
+function contact_name_metabox(){
 
-	$prefix = CPT_PREFIX . 'person_';
+	$prefix = CPT_PREFIX . 'contact_';
 
 	$cmb2 = new_cmb2_box( array(
 		'id' => $prefix . 'name_metabox',
@@ -97,11 +97,11 @@ function person_name_metabox(){
 
 }
 
-add_action('cmb2_admin_init', 'person_address_metabox');
+add_action('cmb2_admin_init', 'contact_address_metabox');
 
-function person_address_metabox(){
+function contact_address_metabox(){
 
-	$prefix = CPT_PREFIX . 'person_';
+	$prefix = CPT_PREFIX . 'contact_';
 
 	$cmb2 = new_cmb2_box(array(
 		'id' => $prefix . 'address_metabox',
@@ -151,11 +151,11 @@ function person_address_metabox(){
 
 }
 
-add_action('cmb2_admin_init', 'person_notes_metabox');
+add_action('cmb2_admin_init', 'contact_notes_metabox');
 
-function person_notes_metabox(){
+function contact_notes_metabox(){
 
-	$prefix = CPT_PREFIX . 'person_';
+	$prefix = CPT_PREFIX . 'contact_';
 
 	$cmb2 = new_cmb2_box( array(
 		'id' => $prefix . 'notes_metabox',
@@ -182,11 +182,11 @@ function person_notes_metabox(){
 
 }
 
-add_action('cmb2_admin_init', 'person_metabox');
+add_action('cmb2_admin_init', 'contact_metabox');
 
-function person_metabox(){
+function contact_metabox(){
 
-	$prefix = CPT_PREFIX . 'person_';
+	$prefix = CPT_PREFIX . 'contact_';
 
 	$cmb2 = new_cmb2_box( array(
 		'id' => $prefix . 'metabox',
@@ -256,11 +256,11 @@ function person_metabox(){
 
 }
 
-add_action('cmb2_admin_init', 'person_optout_metabox');
+add_action('cmb2_admin_init', 'contact_optout_metabox');
 
-function person_optout_metabox(){
+function contact_optout_metabox(){
 
-	$prefix = CPT_PREFIX . 'person_';
+	$prefix = CPT_PREFIX . 'contact_';
 
 	$cmb2 = new_cmb2_box( array(
 		'id' => $prefix . 'optout_metabox',
@@ -287,3 +287,46 @@ function person_optout_metabox(){
 	));
 
 }
+
+///////////////////
+// Files Metabox //
+///////////////////
+
+add_action('cmb2_admin_init', 'files_metabox');
+
+function files_metabox(){
+
+	$prefix = CPT_PREFIX . 'file_';
+
+	$cmb2 = new_cmb2_box(array(
+		'id' => $prefix . 'metabox',
+		'title' => 'Files',
+		'object_types' => array('contact', 'organization')
+	));
+
+	$group_field_id = $cmb2->add_field(array(
+		'id' => $prefix . 'file',
+		'type' => 'group',
+		'name' => 'File',
+		'options' => array(
+			'add_button' => 'Add New File',
+			'remove_button' => 'Remove file'
+		)
+	));
+
+	$cmb2->add_group_field($group_field_id, array(
+		'name' => 'Title',
+		'id' => $prefix . 'title',
+		'type' => 'text'
+	));
+
+	$cmb2->add_group_field($group_field_id, array(
+		'name' => 'File',
+		'id' => $prefix . 'file',
+		'type' => 'file'
+	));
+
+}
+
+
+

@@ -10,7 +10,7 @@
  * @package Bac-cpt
  */
 
-function bac_cpt_load_files(){
+function bac_crm_load_files(){
 
 	$files = array(
 		'setup/post-types.php',
@@ -27,14 +27,31 @@ function bac_cpt_load_files(){
 
 }
 
-function bac_cpt_init(){
+// Set path constants
+function bac_crm_set_path_constants(){
+
+	$plugin_path = __DIR__;
+
+	define('BAC_CRM_ASSET_PATH', plugin_dir_path(__FILE__) . 'assets/');
+	define('BAC_CRM_ASSET_URL', plugin_dir_url(__FILE__) . 'assets/');
+
+}
+
+function bac_crm_init(){
 
 	if (file_exists('vendor/autoload.php')){
 		require_once('vendor/autoload.php');
 	}
 
-	bac_cpt_load_files();
+	bac_crm_load_files();
+
+	bac_crm_set_path_constants();
 
 }
 
-bac_cpt_init();
+bac_crm_init();
+
+// Load Styles
+add_action('admin_init', function(){
+	wp_enqueue_style('bac-crm-styles', BAC_CRM_ASSET_URL . 'css/crm-admin-styles.css', false);
+});
