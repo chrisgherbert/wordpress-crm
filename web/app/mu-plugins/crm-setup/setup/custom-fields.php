@@ -170,14 +170,37 @@ function contact_notes_metabox(){
 		'options' => array(
 			'group_title' => 'Notes',
 			'add_button' => '+ New Note',
-			'remove_button' => '- Remove Note'
-		)
+			'remove_button' => '- Remove Note',
+		),
 	));
 
 	$cmb2->add_group_field($group_field_id, array(
 		'name' => 'Contents',
 		'id' => 'contents',
-		'type' => 'textarea'
+		'type' => 'textarea',
+		'attributes' => array(
+			'class' => 'contact_note_contents'
+		)
+	));
+
+	$cmb2->add_group_field($group_field_id, array(
+		'name' => 'User',
+		'id' => 'user',
+		'type' => 'hidden',
+		'attributes' => array(
+			'class' => 'contact_note_user',
+			'data-current-user' => wp_get_current_user()->display_name
+		)
+	));
+
+	$cmb2->add_group_field($group_field_id, array(
+		'name' => 'Date',
+		'id' => 'date',
+		'type' => 'hidden',
+		'attributes' => array(
+			'class' => 'contact_note_date',
+			'data-current-date' => date('Y-m-d H:i:s')
+		)
 	));
 
 }
@@ -225,7 +248,7 @@ function contact_metabox(){
 	));
 
 	$cmb2->add_field(array(
-		'id' => $prefix . 'email',
+		'id' => $prefix . 'primary_email',
 		'name' => 'Email Address',
 		'type' => 'text_email'
 	));
@@ -252,6 +275,35 @@ function contact_metabox(){
 		'id' => $prefix . 'personal_website_url',
 		'name' => 'Personal Website URL',
 		'type' => 'text_url'
+	));
+
+	$email_group = $cmb2->add_field(array(
+		'id' => $prefix . 'other_emails',
+		'name' => 'Other Email Addresses',
+		'type' => 'group'
+	));
+
+	$cmb2->add_group_field($email_group, array(
+		'id' => 'email',
+		'type' => 'text_email',
+		'name' => 'Email',
+		'options' => array(
+			'add_button' => 'Add Email',
+			'remove_button' => 'Remove Email',
+			'sortable' => false
+		)
+	));
+
+	$cmb2->add_group_field($email_group, array(
+		'id' => 'email_type',
+		'type' => 'select',
+		'name' => 'Type',
+		'options' => array(
+			'' => 'Choose type',
+			'personal' => 'Personal',
+			'work' => 'Work',
+			'school' => 'School'
+		)
 	));
 
 }
