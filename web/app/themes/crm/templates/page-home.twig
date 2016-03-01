@@ -8,9 +8,29 @@
 
 			<div class="col-md-12">
 
-				<h1>
-					{{ post.title }}
-				</h1>
+				{% if recent %}
+
+					<h2>Recent Updates</h2>
+
+					<ul>
+
+						{% for recent_item in recent %}
+
+							<li>
+
+								<span class="label label-{{ recent_item.get_last_action.bs_action_class }}">
+									{{ recent_item.get_last_action.text }}
+								</span> &nbsp;
+
+								The {{ recent_item.post_type }} <strong><a href="{{ recent_item.link }}">{{ recent_item.title }}</a></strong> was {{ recent_item.get_last_action.text }} by {{ recent_item.modified_author }} on {{ recent_item.modified_date }}
+
+							</li>
+
+						{% endfor %}
+
+					</ul>
+
+				{% endif %}
 
 			</div><!-- /.col-md-12 -->
 
