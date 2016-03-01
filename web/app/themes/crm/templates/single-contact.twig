@@ -1,0 +1,224 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div class="page-content">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-sm-3">
+
+					<div class="side-menu">
+
+						<h4>Menu</h4>
+
+						<ul>
+							<li><a href="/">Dashboard</a></li>
+							<li><a href="/contact/">Contacts</a></li>
+							<li><a href="/organization/">Organizations</a></li>
+						</ul>
+
+						<h4><i class="fa fa-search"></i> My Saved Searches</h4>
+
+						<ul>
+							<li><a href="#">Fake Searches</a></li>
+							<li><a href="#">Fake Searches</a></li>
+							<li><a href="#">Fake Searches</a></li>
+						</ul>
+
+					</div><!-- /.side-menu -->
+
+				</div><!-- /.col-sm-3 -->
+
+				<div class="col-sm-9">
+
+					<div class="media">
+
+						<div class="media-left pull-left">
+
+							{% if post.thumbnail %}
+								<a target="_blank" class="thumbnail" href="{{ post.thumbnail.src }}">
+									<img class="media-object" src="{{ post.thumbnail.src('thumbnail') }}" alt="Contact Image" width="100">
+								</a>
+							{% endif %}
+
+						</div><!-- /.media-left pull-left -->
+
+						<div class="media-body">
+
+							<h1>
+								{{ post.title }}
+								<small>
+									(<a href="{{ post.edit_link }}">edit</a>)
+								</small>
+							</h1>
+
+							<h3>
+								{{ post.job_title }}
+							</h3>
+
+						</div><!-- /.media-body -->
+
+					</div><!-- /.media -->
+
+					<h4>Information</h4>
+
+					<table class="table table-striped">
+
+						{% if post.phone_mobile %}
+							<tr>
+								<td>Phone (cell)</td>
+								<td><strong>{{ post.phone_mobile }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.phone_work %}
+							<tr>
+								<td>Phone (work)</td>
+								<td><strong>{{ post.phone_work }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.address_1 %}
+							<tr>
+								<td>Address 1</td>
+								<td><strong>{{ post.address_1 }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.address_2 %}
+							<tr>
+								<td>Address 2</td>
+								<td><strong>{{ post.address_2 }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.city %}
+							<tr>
+								<td>City</td>
+								<td><strong>{{ post.city }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.state %}
+							<tr>
+								<td>State</td>
+								<td><strong>{{ post.state }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.zip %}
+							<tr>
+								<td>Zip Code</td>
+								<td><strong>{{ post.zip }}</strong></td>
+							</tr>
+						{% endif %}
+
+						{% if post.country %}
+							<tr>
+								<td>Country</td>
+								<td><strong>{{ post.country }}</strong></td>
+							</tr>
+						{% endif %}
+
+					</table><!-- /.table table-striped -->
+
+					{% if post.organizations %}
+
+						<h4>Organizations</h4>
+
+						<ul>
+
+							{% for organization in post.organizations %}
+
+								<li>
+									<a href="{{ organization.link }}">{{ organization.title }}</a>
+								</li>
+
+							{% endfor %}
+
+						</ul>
+
+					{% endif %}
+
+					<div class="record-tabs record-tabs--contact">
+
+						<ul class="nav nav-tabs">
+
+							<li class="active">
+								<a href="#map" data-toggle="tab">Map</a>
+							</li>
+
+							<li>
+								<a href="#notes" data-toggle="tab">Notes</a>
+							</li>
+
+							<li>
+								<a href="#files" data-toggle="tab">Files</a>
+							</li>
+
+						</ul><!-- /.nav nav-tabs -->
+
+						<div class="tab-content">
+
+							<div class="tab-pane active" id="map">
+
+								<script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script><div style='overflow:hidden;height:400px;width:520px;'><div id='gmap_canvas' style='height:400px;width:520px;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><a href='http://maps-generator.com/'>Maps Generator</a>
+								<script type='text/javascript'>function init_map(){var myOptions = {zoom:13,center:new google.maps.LatLng(38.90348609999999,-77.0336565),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(38.90348609999999,-77.0336565)});infowindow = new google.maps.InfoWindow({content:'<strong>Stupid Head</strong><br>1090 Vermont Ave NW, Suite 800<br>20002 Washington<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+
+							</div><!-- /#map.tab-pane -->
+
+							<div class="tab-pane" id="notes">
+
+								{% if post.notes %}
+
+									{% for note in post.notes %}
+
+										<div class="well">
+
+											{{ note.contents }}
+
+											<p class="text-right">
+												<small>
+													<em>
+													edited by <strong>{{ note.user }}</strong>
+													on <strong>{{ note.date }}</strong>
+													</em>
+												</small>
+											</p>
+
+										</div><!-- /.well -->
+
+									{% endfor %}
+
+								{% else %}
+									<div class="alert alert-danger">No notes found</div><!-- /.alert alert-danger -->
+								{% endif %}
+
+							</div><!-- /.tab-pane active -->
+
+							<div class="tab-pane" id="files">
+
+								{% if post.files %}
+
+								{% else %}
+									<div class="alert alert-danger">No files found</div><!-- /.alert alert-danger -->
+								{% endif %}
+
+							</div><!-- /#files.tab-pane -->
+
+						</div><!-- /.tab-content -->
+
+					</div><!-- /.record-tabs record-tabs--contact -->
+
+				</div><!-- /.col-sm-9 -->
+
+			</div><!-- /.row -->
+
+		</div><!-- /.container -->
+
+	</div><!-- /.page-content -->
+
+{% endblock %}
