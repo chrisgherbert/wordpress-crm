@@ -113,17 +113,18 @@ remove_action('wp_print_styles', 'print_emoji_styles');
 // Custom Login Logo //
 ///////////////////////
 
-// function custom_login_logo() {
-// 	echo '<style type="text/css">
-// 	h1 a { background-image: url('.get_bloginfo('template_directory').'/assets/img/logos/login-logo.png) !important;
-// 	 background-size: 100% !important;
-// 	 width: 100% !important;
-// 	 height: 125px !important;
-// 	}
-// 	</style>';
-// }
+function custom_login_logo() {
+	echo '<style type="text/css">
+	h1 a { background-image: url('.get_bloginfo('template_directory').'/assets/img/logo_dark.svg) !important;
+	 background-size: contain !important;
+	 width: 100% !important;
+	 height: 75px !important;
+	 pointer-events: none;
+	}
+	</style>';
+}
 
-// add_action('login_head', 'custom_login_logo');
+add_action('login_head', 'custom_login_logo');
 
 ///////////////////////
 // Set Custom Routes //
