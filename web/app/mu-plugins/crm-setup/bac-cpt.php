@@ -22,6 +22,7 @@ function bac_crm_load_files(){
 		'setup/posts-to-posts.php',
 		'classes/CrmQueries.php',
 		'classes/CrmPost.php',
+		'classes/CrmEntity.php',
 		'classes/CrmContact.php',
 		'classes/CrmOrganization.php',
 		'classes/CrmMailingList.php',

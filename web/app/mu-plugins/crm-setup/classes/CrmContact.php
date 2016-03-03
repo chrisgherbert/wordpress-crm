@@ -1,6 +1,6 @@
 <?php
 
-class CrmContact Extends CrmPost {
+class CrmContact extends CrmEntity {
 
 	public $custom_field_prefix = 'crm_contact_';
 
@@ -75,34 +75,6 @@ class CrmContact Extends CrmPost {
 
 	public function get_professional_suffix(){
 		return $this->get_cmb2_meta('professional_suffix');
-	}
-
-	public function get_job_title(){
-		return $this->get_cmb2_meta('job_title');
-	}
-
-	public function get_address_1(){
-		return $this->get_cmb2_meta('address_1');
-	}
-
-	public function get_address_2(){
-		return $this->get_cmb2_meta('address_2');
-	}
-
-	public function get_city(){
-		return $this->get_cmb2_meta('city');
-	}
-
-	public function get_state(){
-		return $this->get_cmb2_meta('state');
-	}
-
-	public function get_zip(){
-		return $this->get_cmb2_meta('zip');
-	}
-
-	public function get_country(){
-		return $this->get_cmb2_meta('country');
 	}
 
 	public function get_phone_mobile(){

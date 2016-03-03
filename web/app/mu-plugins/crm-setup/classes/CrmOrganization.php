@@ -1,6 +1,6 @@
 <?php
 
-class CrmOrganization extends CrmPost {
+class CrmOrganization extends CrmEntity {
 
 	
 
