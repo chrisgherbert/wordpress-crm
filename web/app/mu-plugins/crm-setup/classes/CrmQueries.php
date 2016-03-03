@@ -6,7 +6,9 @@ class CrmQueries {
 
 		$query = array(
 			'post_status' => array('publish', 'trash'),
-			'post_type' => array('contact', 'organization', 'mailing-list')
+			'post_type' => array('contact', 'organization', 'mailing-list'),
+			'orderby' => 'post_modified',
+			'order' => 'DESC'
 		);
 
 		if ($number){
