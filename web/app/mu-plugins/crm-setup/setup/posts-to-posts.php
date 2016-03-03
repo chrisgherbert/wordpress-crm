@@ -18,31 +18,32 @@ function crm_connection_types(){
 		),
 		'admin_box' => array(
 			'context' => 'advanced'
-		)
-	));
-
-	p2p_register_connection_type(array(
-		'name' => 'contact_to_security_group',
-		'from' => 'contact',
-		'to' => 'security-group',
-		'admin_column' => 'any',
-		'title' => array(
-			'from' => 'Security Groups',
-			'to' => 'Contacts'
 		),
-		'admin_box' => array(
-			'context' => 'advanced'
+		'fields' => array(
+			'job_title' => array(
+				'title' => 'Job Title',
+				'type' => 'text'
+			),
+			'current' => array(
+				'title' => 'Current',
+				'type' => 'select',
+				'values' => array('', 'current', 'former')
+			),
+			'primary' => array(
+				'title' => 'Primary Contact',
+				'type' => 'checkbox'
+			)
 		)
 	));
 
 	p2p_register_connection_type(array(
-		'name' => 'organization_to_security_group',
-		'from' => 'organization',
+		'name' => 'content_to_security_group',
+		'from' => array('contact', 'organization', 'mailing-list'),
 		'to' => 'security-group',
 		'admin_column' => 'any',
 		'title' => array(
 			'from' => 'Security Groups',
-			'to' => 'Organizations'
+			'to' => 'Content'
 		),
 		'admin_box' => array(
 			'context' => 'advanced'
@@ -68,7 +69,7 @@ function crm_connection_types(){
 	));
 
 	p2p_register_connection_type(array(
-		'name' => 'contacts_to_mailing_lists',
+		'name' => 'contact_to_mailing_list',
 		'from' => 'contact',
 		'to' => 'mailing-list',
 		'title' => array(
