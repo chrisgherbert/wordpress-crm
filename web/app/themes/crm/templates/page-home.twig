@@ -2,40 +2,33 @@
 
 {% block content %}
 
-	<div class="container">
+	{% if recent %}
 
-		<div class="row">
+		<h2>Recent Updates</h2>
 
-			<div class="col-md-12">
+		<table class="table-condensed">
 
-				{% if recent %}
+			{% for recent_item in recent %}
 
-					<h2>Recent Updates</h2>
+				<tr>
+					<td>
+						<span class="label label-{{ recent_item.get_last_action.bs_action_class }}">
+							{{ recent_item.get_last_action.text }}
+						</span>
+					</td>
+					<td>
+						{% if recent_item.get_last_action.text == 'Deleted' %}
+							The {{ recent_item.post_type }} <strong>{{ recent_item.title }}</strong> was {{ recent_item.get_last_action.text }} by {{ recent_item.modified_author }} on {{ recent_item.modified_date }}
+						{% else %}
+							The {{ recent_item.post_type }} <strong><a href="{{ recent_item.link }}">{{ recent_item.title }}</a></strong> was {{ recent_item.get_last_action.text }} by {{ recent_item.modified_author }} on {{ recent_item.modified_date }}
+						{% endif %}
+					</td>
+				</tr>
 
-					<ul>
+			{% endfor %}
 
-						{% for recent_item in recent %}
+		</table><!-- /.table-condensed -->
 
-							<li>
-
-								<span class="label label-{{ recent_item.get_last_action.bs_action_class }}">
-									{{ recent_item.get_last_action.text }}
-								</span> &nbsp;
-
-								The {{ recent_item.post_type }} <strong><a href="{{ recent_item.link }}">{{ recent_item.title }}</a></strong> was {{ recent_item.get_last_action.text }} by {{ recent_item.modified_author }} on {{ recent_item.modified_date }}
-
-							</li>
-
-						{% endfor %}
-
-					</ul>
-
-				{% endif %}
-
-			</div><!-- /.col-md-12 -->
-
-		</div><!-- /.row -->
-
-	</div><!-- /.container -->
+	{% endif %}
 
 {% endblock %}
