@@ -35,6 +35,15 @@ if ( is_day() ) {
 	array_unshift( $templates, 'archive-' . get_post_type() . '.twig' );
 }
 
-$data['posts'] = Timber::get_posts();
+$post_type = get_post_type();
+
+if ($post_type){
+	$post_type_class = CrmQueries::get_post_type_class($post_type);
+}
+else {
+	$post_type_class = 'CrmPost';
+}
+
+$data['posts'] = Timber::get_posts(false, $post_type_class);
 
 Timber::render( $templates, $data );
