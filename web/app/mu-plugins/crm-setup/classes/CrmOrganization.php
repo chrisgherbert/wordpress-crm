@@ -4,6 +4,28 @@ class CrmOrganization extends CrmEntity {
 
 	public $custom_field_prefix = 'crm_organization_';
 
+	public function get_subtitle(){
+
+		$parts = array();
+
+		if ($this->get_type()){
+			$parts[] = $this->get_type();
+		}
+
+		if ($this->get_size()){
+			$parts[] = $this->get_size();
+		}
+
+		if ($this->get_industries_links()){
+			$parts[] = $this->get_industries_links();
+		}
+
+		if ($parts){
+			return implode(', ', $parts);
+		}
+
+	}
+
 	////////////////
 	// Taxonomies //
 	////////////////
@@ -34,6 +56,33 @@ class CrmOrganization extends CrmEntity {
 
 	}
 
+	/**
+	 * Get the organization's primary contact.  If there is more than one, it
+	 * will only get the first one that it finds.
+	 * @return CrmContact|null
+	 */
+	public function get_primary_contact(){
+
+		$query = $this->p2p_adapter->get_connected_objects(
+			$this->ID,
+			'contact_to_organization',
+			'any',
+			1
+		);
+
+		// Get only primary contact using connected metadata
+		$query['connected_meta'] = array(
+			'primary' => true
+		);
+
+		$primary_array = CrmQueries::get_posts($query);
+
+		if (isset($primary_array[0])){
+			return $primary_array[0];
+		}
+
+	}
+
 	public function get_contact_job_title($contact_id){
 
 		return $this->p2p_adapter->get_connection_meta(
@@ -58,29 +107,9 @@ class CrmOrganization extends CrmEntity {
 
 	}
 
-	public function get_subtitle(){
-
-		$parts = array();
-
-		if ($this->get_type()){
-			$parts[] = $this->get_type();
-		}
-
-		if ($this->get_size()){
-			$parts[] = $this->get_size();
-		}
-
-		if ($this->get_industries_links()){
-			$parts[] = $this->get_industries_links();
-		}
-
-		if ($parts){
-			return implode(', ', $parts);
-		}
-
-	}
-
-	// Organization Information
+	//////////////////////////////
+	// Organization Information //
+	//////////////////////////////
 
 	public function get_basic_info_array(){
 
