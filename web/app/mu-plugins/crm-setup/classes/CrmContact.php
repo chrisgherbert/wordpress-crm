@@ -268,6 +268,10 @@ class CrmContact extends CrmEntity {
 			$number
 		);
 
+		// Sort by title
+		$query['orderby'] = 'title';
+		$query['order'] = 'ASC';
+
 		return CrmQueries::get_posts($query);
 
 	}
