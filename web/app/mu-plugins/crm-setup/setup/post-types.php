@@ -22,6 +22,8 @@ class Person_CPT extends CPT_Core {
 			array(
 				'menu_icon' => 'dashicons-universal-access',
 				'supports' => array( 'thumbnail'),
+				'show_in_rest' => true,
+				'rest_controller_class' => 'WP_REST_Posts_Controller'
 			)
 		);
 
@@ -111,6 +113,8 @@ register_via_cpt_core(
 	),
 	array(
 		'supports' => array('title', 'thumbnail'),
+		'show_in_rest' => true,
+		'rest_controller_class' => 'WP_REST_Posts_Controller'
 	)
 );
 

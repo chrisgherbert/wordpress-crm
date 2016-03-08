@@ -60,7 +60,8 @@
     "wpackagist-plugin/posts-to-posts": "^1.6",
     "plasticbrain/php-flash-messages": "^1.0",
     "webdevstudios/taxonomy_core": "^0.2.4",
-    "ddeboer/imap": "^0.5.2"
+    "ddeboer/imap": "^0.5.2",
+    "wpackagist-plugin/rest-api": "dev-master"
   },
   "extra": {
     "installer-paths": {

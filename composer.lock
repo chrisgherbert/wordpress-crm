@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6597970ee8a7bb85214c3c0150d939e3",
-    "content-hash": "5885e59ee03d96524743eee6810c9b6d",
+    "hash": "ae6c8fb3c01fe8c2b322e241b700cd15",
+    "content-hash": "61ccd55337cf2b98d0ba708140bce57c",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -943,6 +943,27 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/posts-to-posts/"
+        },
+        {
+            "name": "wpackagist-plugin/rest-api",
+            "version": "dev-trunk",
+            "source": {
+                "type": "svn",
+                "url": "http://plugins.svn.wordpress.org/rest-api/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/rest-api.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/rest-api/",
+            "time": "2016-02-09 16:48:51"
         }
     ],
     "packages-dev": [],
@@ -952,7 +973,8 @@
         "webdevstudios/cpt-core": 20,
         "bermanco/posts-2-posts-adapter": 20,
         "bermanco/bac-timber-classes": 20,
-        "bermanco/google-maps-static-image": 20
+        "bermanco/google-maps-static-image": 20,
+        "wpackagist-plugin/rest-api": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
