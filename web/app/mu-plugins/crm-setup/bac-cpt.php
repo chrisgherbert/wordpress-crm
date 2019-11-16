@@ -17,6 +17,8 @@ function bac_cpt_load_files(){
 		'setup/custom-fields.php',
 		'setup/taxonomies.php',
 		'setup/posts-to-posts.php',
+		'classes/CrmPost.php',
+		'classes/CrmPerson.php'
 	);
 
 	if ($files) {
