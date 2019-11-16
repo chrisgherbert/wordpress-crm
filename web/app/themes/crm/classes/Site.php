@@ -57,7 +57,7 @@ class Site extends TimberSite {
 	 */
 	public function enqueue_stylesheets()
 	{
-		wp_enqueue_style( 'main', get_template_directory_uri() . '/dist/main.css' );
+		wp_enqueue_style( 'main', get_template_directory_uri() . '/dist/main.css', array('dashicons') );
 	}
 
 }

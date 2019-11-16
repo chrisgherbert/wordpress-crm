@@ -38,6 +38,10 @@
     {
       "type": "git",
       "url": "https://github.com/bermanco/extended-timber-classes.git"
+    },
+    {
+      "type": "git",
+      "url": "https://github.com/bermanco/google-maps-static-image.git"
     }
   ],
   "require": {
@@ -52,8 +56,12 @@
     "wpackagist-plugin/easy-wp-smtp": "^1.2",
     "bermanco/posts-2-posts-adapter": "dev-master",
     "bermanco/bac-timber-classes": "dev-master",
+    "bermanco/google-maps-static-image": "dev-master",
     "wpackagist-plugin/posts-to-posts": "^1.6",
-    "wpackagist-plugin/wp-crm": "^1.0"
+    "plasticbrain/php-flash-messages": "^1.0",
+    "webdevstudios/taxonomy_core": "^0.2.4",
+    "ddeboer/imap": "^0.5.2",
+    "wpackagist-plugin/rest-api": "dev-master"
   },
   "extra": {
     "installer-paths": {

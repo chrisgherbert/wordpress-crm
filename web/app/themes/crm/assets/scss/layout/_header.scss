@@ -1,0 +1,20 @@
+/**
+ * Header
+ */
+
+.main-header {
+	color: white;
+	a {
+		color: white;
+	}
+	background-color: $midnight-blue;
+	background-image: url('../assets/img/logo_bg.svg');
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	padding: $spacing/4 0;
+}
+
+.main-header__logo {
+	margin: 0;
+	line-height: 0;
+}

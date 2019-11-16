@@ -10,11 +10,7 @@
  */
 
 $context = Timber::get_context();
-
-// Get the proper class to instantiate
-$post_type_class = CrmQueries::get_post_type_class(get_post_type());
-
-$post = Timber::query_post(false, $post_type_class);
+$post = Timber::query_post(false, 'CrmContact');
 $context['post'] = $post;
 $context['comment_form'] = TimberHelper::get_comment_form();
 

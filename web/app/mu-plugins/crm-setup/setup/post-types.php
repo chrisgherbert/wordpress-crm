@@ -5,9 +5,9 @@
  */
 define( 'CPT_PREFIX', 'crm_' );
 
-////////////
-// People //
-////////////
+//////////////
+// Contacts //
+//////////////
 
 class Person_CPT extends CPT_Core {
 
@@ -22,6 +22,8 @@ class Person_CPT extends CPT_Core {
 			array(
 				'menu_icon' => 'dashicons-universal-access',
 				'supports' => array( 'thumbnail'),
+				'show_in_rest' => true,
+				'rest_controller_class' => 'WP_REST_Posts_Controller'
 			)
 		);
 
@@ -66,35 +68,36 @@ class Person_CPT extends CPT_Core {
 
 }
 
+/**
+ * Automatically set "contact" posts titles to the first and last name.  
+ * There's no need to have users enter someone's name twice.
+ * @param   array $data     WordPress post data being submitted
+ * @return  array           WordPress post data, modified
+ */
+function set_contact_title($data, $postarr){
 
-add_action('save_post', 'set_person_title_to_name', 10, 3);
+	$post_type = $data['post_type'];
 
-function set_person_title_to_name($post_id, $post, $update){
+	if ($post_type == 'contact'){
 
-	if (!$post->post_type == 'person'){
-		return;
+		if (isset($_POST['crm_contact_first_name']) && isset($_POST['crm_contact_last_name'])){
+
+			$first_name = $_POST['crm_contact_first_name'];
+			$last_name = $_POST['crm_contact_last_name'];
+
+			if ($first_name && $last_name){
+				$data['post_title'] = "$first_name $last_name";
+			}
+
+		}
+
 	}
 
-	$first_name = get_post_meta($post_id, 'crm_person_first_name', true);
-	$last_name = get_post_meta($post_id, 'crm_person_last_name', true);
-	$name = trim("$first_name $last_name");
-
-	// unhook this function so it doesn't loop infinitely
-	remove_action( 'save_post', 'set_person_title_to_name');
-
-	if (wp_is_post_revision($post_id)){
-		$post_id = wp_is_post_revision($post_id);
-	}
-
-	wp_update_post(array(
-		'ID' => $post_id,
-		'post_title' => $name
-	));
-
-	// re-hook this function
-	add_action( 'save_post', 'set_person_title_to_name', 10, 3);
+	return $data;
 
 }
+
+add_filter('wp_insert_post_data', 'set_contact_title', 10, 2);
 
 new Person_CPT;
 
@@ -109,7 +112,41 @@ register_via_cpt_core(
 		'organization'
 	),
 	array(
-		'supports' => array('title', 'thumbnail')
+		'supports' => array('title', 'thumbnail'),
+		'show_in_rest' => true,
+		'rest_controller_class' => 'WP_REST_Posts_Controller'
+	)
+);
+
+/////////////////////
+// Security Groups //
+/////////////////////
+
+register_via_cpt_core(
+	array(
+		'Security Group',
+		'Security Groups',
+		'security-group'
+	),
+	array(
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-lock',
+	)
+);
+
+///////////////////
+// Mailing Lists //
+///////////////////
+
+register_via_cpt_core(
+	array(
+		'Mailing List',
+		'Mailing Lists',
+		'mailing-list'
+	),
+	array(
+		'supports' => array('title'),
+		'menu_icon' => 'dashicons-email',
 	)
 );
 

@@ -1,0 +1,64 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<h1 class="page-title">
+		{{ posts|length }} Contacts
+		<small>
+			(<a href="/wp/wp-admin/post-new.php?post_type=contact">+ Add Contact</a>)
+		</small>
+	</h1><!-- /.page-title -->
+
+	{% if posts %}
+
+		<table class="table table-striped">
+
+			<thead>
+
+				<tr>
+					<th>Name</th>
+					<th>Position</th>
+					<th>Location</th>
+					<th>Organization(s)</th>
+					<th>Modified</th>
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				{% for post in posts %}
+
+					<tr>
+						<td>
+							<strong>
+								<a href="{{ post.link }}">{{ post.name }}</a>
+							</strong>
+						</td>
+						<td>
+							{{ post.job_title }}
+						</td>
+						<td>
+							{{ post.city_state_string }}
+						</td>
+						<td>
+							{{ post.organizations_links }}
+						</td>
+						<td>
+							{{ post.date }}
+						</td>
+					</tr>
+
+				{% endfor %}
+
+			</tbody>
+
+		</table><!-- /.table-striped -->
+
+	{% else %}
+
+		<div class="alert alert-danger">No contacts to display</div><!-- /.alert alert-danger -->
+
+	{% endif %}
+
+{% endblock %}
